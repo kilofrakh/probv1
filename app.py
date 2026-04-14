@@ -4,7 +4,7 @@
 # 
 # **What this notebook does:**
 # 1. Accepts a real CBCT upload (DICOM folder ZIP or `.nii.gz`)
-# 2. Segments individual teeth via 3D U-Net
+# 2. Segments individual teeth via 3D U-"/kaggle/input/datasets/..."
 # 3. Extracts 14 structural + HU-based features per tooth
 # 4. Classifies each tooth as Low/High Risk
 # 5. Computes bone density (HU-calibrated), bone loss ratio, tilt angle per tooth
@@ -493,7 +493,7 @@ def _strip_module_prefix(state_dict):
 def find_segmentation_checkpoint():
     candidates = [
         os.environ.get("SEG_MODEL_PATH", "").strip(),
-        "/kaggle/input/datasets/mrabdelkareem/asdffsdfsadf/seg_model_monai_unet.pth"
+        "seg.pth"
     ]
     for p in candidates:
         if p and os.path.exists(p):
@@ -1572,6 +1572,15 @@ Research prototype | Not for clinical use
 """)
 
 demo.launch(
+    share=True,
+    debug=False,
+    show_error=True,
+    server_name="0.0.0.0",
+    server_port=7893,
+)
+
+if __name__ == "__main__":
+    demo.launch(
     share=True,
     debug=False,
     show_error=True,
