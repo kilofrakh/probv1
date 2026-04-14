@@ -1,0 +1,12 @@
+gradio
+numpy
+matplotlib
+nibabel
+SimpleITK
+scikit-image
+scikit-learn
+imbalanced-learn
+torch
+torchvision
+fpdf2
+scipy
